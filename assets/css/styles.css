@@ -1,1 +1,206 @@
 @import "./fonts/icons.css";
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+:root {
+    font-size: 16px;
+    font-family: sans-serif;
+    --shadow-settings: inset 0 0 6rem 12rem;
+    --selected-color: #1e90ff;
+}
+
+.user-cards-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.user-card-wrapper {
+    --delay: 0.5s;
+    border-radius: 0.5rem;
+    transition: var(--delay);
+    position: relative;
+    margin: 3rem 0;
+}
+
+.user-card-wrapper:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
+}
+
+.checked {
+    position: absolute;
+    border-radius: inherit;
+    border: 0.25rem solid var(--selected-color);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(115, 200, 255, 0.5);
+    z-index: 1;
+}
+
+.user-card {
+    --width: 300px;
+    text-align: center;
+    width: var(--width);
+    min-width: var(--width);
+    padding: 2.5rem 1.5rem;
+    border-radius: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    position: relative;
+
+    object-fit: cover;
+    background-size: cover;
+
+    box-shadow: var(--shadow-settings) rgba(255, 255, 255, 0.5);
+}
+
+.bg-summer {
+    background-image: url("./../backgrounds/summer.webp");
+}
+
+.bg-autumn {
+    background-image: url("./../backgrounds/autumn.webp");
+}
+
+.bg-winter {
+    background-image: url("./../backgrounds/winter.webp");
+}
+
+.bg-spring {
+    background-image: url("./../backgrounds/spring.webp");
+}
+
+.fa {
+    --indent: 1rem;
+    color: transparent;
+    font-size: 1.5rem;
+    position: absolute;
+    top: var(--indent);
+    transition: var(--delay);
+    cursor: pointer;
+    z-index: 2;
+}
+
+.fa-circle-o, .fa-check-circle {
+    right: var(--indent);
+}
+
+.fa-circle-o:hover, .fa-check-circle:hover {
+    color: var(--selected-color);
+}
+
+.fa-times {
+    left: var(--indent);
+}
+
+.fa-times:hover {
+    color: red;
+}
+
+.user-image-wrapper {
+    --user-image-size: 10rem;
+    width: var(--user-image-size);
+    height: var(--user-image-size);
+    position: relative;
+}
+
+.user-image {
+    width: var(--user-image-size);
+    height: var(--user-image-size);
+    min-height: var(--user-image-size);
+    min-width: var(--user-image-size);
+    border-radius: 50%;
+    border: 0.7rem solid;
+    background-color: dodgerblue;
+    background-repeat: no-repeat;
+    object-fit: cover;
+    object-position: top;
+
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+}
+
+.unknown {
+    border-color: silver;
+}
+
+.male {
+    border-color: #87cefa;
+}
+
+.female {
+    border-color: pink;
+}
+
+.user-data {
+    width: 100%;
+    padding: 1.5rem 0;
+}
+
+.user-name, .user-age {
+    font-size: 1.8rem;
+    text-transform: capitalize;
+    font-weight: normal;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.user-age {
+    margin: 0.7rem 0 1.5rem;
+}
+
+.user-description {
+    --one-line: 1.5rem;
+    --line-count: 4;
+    line-height: var(--one-line);
+    display: -webkit-box;
+    -webkit-line-clamp: var(--line-count);
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: calc(var(--one-line) * var(--line-count));
+}
+
+.user-contacts {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.icon {
+    font-size: 1.5rem;
+    color: red;
+}
+
+/*ticker*/
+
+.marquee {
+    width: 100%;
+    overflow: hidden;
+}
+
+.marquee .user-name {
+    display: inline-block;
+    padding-left: 100%;
+    animation: marquee 10s infinite linear;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(-100%, 0)
+    }
+}
