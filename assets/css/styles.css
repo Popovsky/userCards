@@ -12,6 +12,12 @@
     --selected-color: #1e90ff;
 }
 
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .user-cards-wrapper {
     display: flex;
     flex-wrap: wrap;
@@ -62,6 +68,10 @@
     box-shadow: var(--shadow-settings) rgba(255, 255, 255, 0.5);
 }
 
+.bg-default {
+    background-color: #ffefac;
+}
+
 .bg-summer {
     background-image: url("./../backgrounds/summer.webp");
 }
@@ -107,9 +117,19 @@
 
 .user-image-wrapper {
     --user-image-size: 10rem;
+    box-sizing: content-box;
     width: var(--user-image-size);
     height: var(--user-image-size);
+    border-radius: 50%;
+    border: 0.7rem solid;
+    overflow: hidden;
+    /*background-color: dodgerblue;*/
     position: relative;
+}
+
+.user-initials {
+    color: white;
+    font-size: 5rem;
 }
 
 .user-image {
@@ -117,13 +137,9 @@
     height: var(--user-image-size);
     min-height: var(--user-image-size);
     min-width: var(--user-image-size);
-    border-radius: 50%;
-    border: 0.7rem solid;
-    background-color: dodgerblue;
     background-repeat: no-repeat;
     object-fit: cover;
     object-position: top;
-
     top: 0;
     left: 0;
     right: 0;
@@ -149,12 +165,18 @@
 }
 
 .user-name, .user-age {
-    font-size: 1.8rem;
+    --one-line: 1.8rem;
+    font-size: var(--one-line);
+    min-height: var(--one-line);
     text-transform: capitalize;
     font-weight: normal;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
+}
+
+.user-name:empty::before {
+    content: 'anonymous';
 }
 
 .user-age {

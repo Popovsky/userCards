@@ -39,7 +39,7 @@ const createUserAge = (user) => {
     const {birthday} = user;
     const userAge = document.createElement('p');
     userAge.classList.add('user-age');
-    userAge.append(document.createTextNode(getUserFullYear(birthday)));
+    userAge.append(document.createTextNode(getUserFullYear(birthday) ?? ''));
     return userAge;
 }
 

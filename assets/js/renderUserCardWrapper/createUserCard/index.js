@@ -24,7 +24,7 @@ const getSeasonBackground = (str) => {
         case 'November':
             return 'bg-spring';
         default:
-            return ;
+            return 'bg-default';
     }
 }
 
