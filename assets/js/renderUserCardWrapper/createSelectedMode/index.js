@@ -1,5 +1,7 @@
 const createSelectedMode = (user) => {
-    return document.createElement('div');
+    const selectedMode = document.createElement('div');
+    selectedMode.classList.add('selected-mode');
+    return selectedMode;
 }
 
 export default createSelectedMode;

@@ -1,3 +1,5 @@
+import renderSelectedUsers from "../../../renderSelectedUsers";
+
 const createCheckButton = (user) => {
     const checkButton = document.createElement('span');
     checkButton.classList.add('fa', 'fa-circle-o');
@@ -8,14 +10,15 @@ const createCheckButton = (user) => {
                 event.target.classList.add('fa-check-circle');
                 event.target.parentNode.parentNode.childNodes[0].classList.add('checked');
                 user.isSelected = true;
+                renderSelectedUsers(user);
                 break;
             case 'fa-check-circle':
                 event.target.classList.remove('fa-check-circle');
                 event.target.classList.add('fa-circle-o');
                 event.target.parentNode.parentNode.childNodes[0].classList.remove('checked');
                 user.isSelected = false;
+                renderSelectedUsers(user);
         }
-        // console.dir(event.target.parentNode.parentNode.childNodes[0]);
     });
     return checkButton;
 }

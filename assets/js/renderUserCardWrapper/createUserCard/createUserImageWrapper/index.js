@@ -1,5 +1,6 @@
 import createUserImage from "./createUserImage";
 import createUserInitials from "./createUserInitials";
+import createSpinner from "./spinner";
 import stringToHexColor from "../../../stringToHexColor";
 
 const getGenderName = (isMale) => {
@@ -11,7 +12,7 @@ const getGenderName = (isMale) => {
         default:
             return 'unknown';
     }
-}
+};
 
 const createUserImageWrapper = (user) => {
     const {
@@ -24,11 +25,12 @@ const createUserImageWrapper = (user) => {
     userImageWrapper.classList.add('user-image-wrapper', getGenderName(isMale), 'flex-center');
     userImageWrapper.style.backgroundColor = stringToHexColor(`${id}${firstName}${lastName}` || 'default');
     userImageWrapper.append(createUserInitials(user));
+    userImageWrapper.append(createSpinner());
     const userImage = createUserImage(user);
     userImage.addEventListener('load', event => {
         userImageWrapper.append(userImage);
-    })
+    });
     return userImageWrapper;
-}
+};
 
 export default createUserImageWrapper;
