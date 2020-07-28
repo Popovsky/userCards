@@ -28,12 +28,12 @@ const getSeasonBackground = (str) => {
     }
 }
 
-const createUserCard = (user) => {
+const createUserCard = ({user, cardWrapper}) => {
     const {birthday} = user;
     const userCard = document.createElement('article');
     userCard.classList.add('user-card', getSeasonBackground(birthday));
-    userCard.append(createCheckButton(user));
-    userCard.append(createRemoveButton(user));
+    userCard.append(createCheckButton({user, cardWrapper}));
+    userCard.append(createRemoveButton({user, cardWrapper}));
     userCard.append(createUserImageWrapper(user));
     userCard.append(createUserData(user));
     userCard.append(createUserContacts(user));
